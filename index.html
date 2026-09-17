@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ddd9d0">
+  <meta name="description" content="Acta de constitución de la Comisión de Hendijas y Resquicios. Relevamiento permanente de afectaciones producidas por la institución.">
+  <meta property="og:title" content="Comisión de Hendijas y Resquicios">
+  <meta property="og:description" content="Relevamiento permanente de afectaciones producidas por la institución.">
+  <meta property="og:type" content="website">
+  <title>Comisión de Hendijas y Resquicios</title>
+  <style>
+    :root {
+      --ground: #ddd9d0;
+      --ink: #11110f;
+      --cyan: #52d6d0;
+      --yellow: #ffe04b;
+      --pink: #ff6d9f;
+      --orange: #ff7a3d;
+      --green: #75cf72;
+      --violet: #8c72d8;
+      --pad: clamp(18px, 3.4vw, 52px);
+      --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: Inter, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--ground); scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--ground);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+
+    .frame {
+      position: relative;
+      width: calc(100% - clamp(16px, 2.4vw, 34px));
+      margin: clamp(8px, 1.2vw, 17px) auto;
+      border: 3px dotted var(--ink);
+      border-radius: clamp(24px, 3.5vw, 52px);
+      overflow: hidden;
+    }
+
+    .meta {
+      position: absolute;
+      z-index: 5;
+      top: 26px;
+      left: var(--pad);
+      right: var(--pad);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font: 700 clamp(.65rem, 1vw, .78rem)/1.35 var(--mono);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 96svh;
+      padding: clamp(105px, 13vw, 168px) var(--pad) 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 2;
+      max-width: 13ch;
+      margin: 0;
+      font-size: clamp(3.15rem, 9.3vw, 9.7rem);
+      font-weight: 500;
+      line-height: .84;
+      letter-spacing: -.075em;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 2;
+      align-self: flex-start;
+      max-width: 42ch;
+      margin: clamp(30px, 4vw, 52px) 0 0;
+      font: 600 clamp(.8rem, 1.3vw, 1rem)/1.45 var(--mono);
+    }
+
+    .crack {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: clamp(4px, 9vw, 130px);
+      width: clamp(105px, 13vw, 180px);
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .label {
+      margin: 0;
+      font: 700 clamp(.68rem, 1vw, .8rem)/1.35 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .visto {
+      position: relative;
+      min-height: 68svh;
+      padding: 90px var(--pad);
+      display: grid;
+      grid-template-columns: minmax(240px, .65fr) 1fr;
+      gap: 5vw;
+      align-items: center;
+      background: #c8c0b2;
+    }
+
+    .section-title {
+      max-width: 10ch;
+      margin: 0;
+      font-size: clamp(3.4rem, 10vw, 10rem);
+      font-weight: 500;
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+
+    .visto p:last-child {
+      max-width: 23ch;
+      margin: 0;
+      font-size: clamp(2rem, 5.4vw, 5.6rem);
+      font-weight: 500;
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+
+    .section-head {
+      position: relative;
+      min-height: 46svh;
+      padding: 100px var(--pad) 70px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .section-head.considerando { background: #c5d2cf; }
+
+    .section-head h2 {
+      max-width: 10ch;
+      margin: 0;
+      font-size: clamp(3.4rem, 10vw, 10rem);
+      font-weight: 500;
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+
+    .statement {
+      position: relative;
+      min-height: clamp(270px, 39svh, 410px);
+      padding: 62px var(--pad) 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .statement::before {
+      content: attr(data-number);
+      position: absolute;
+      top: 44px;
+      font: 700 .72rem/1 var(--mono);
+    }
+
+    .statement p {
+      width: min(100%, 23ch);
+      margin: 0;
+      font-size: clamp(2rem, 5.8vw, 6rem);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.058em;
+      text-wrap: balance;
+    }
+
+    .statement { justify-content: flex-start; }
+    .statement::before { left: var(--pad); }
+    .statement p { text-align: left; }
+
+    .resolutions {
+      padding: 0 var(--pad) 80px;
+      counter-reset: item;
+    }
+
+    .resolution {
+      counter-increment: item;
+      position: relative;
+      min-height: clamp(250px, 44svh, 460px);
+      padding: 58px 0;
+      display: grid;
+      grid-template-columns: clamp(44px, 7vw, 100px) 1fr;
+      gap: clamp(22px, 4vw, 60px);
+      align-items: center;
+      border-top: 2px dotted var(--ink);
+    }
+
+    .resolution::before {
+      content: counter(item, decimal-leading-zero);
+      align-self: start;
+      padding-top: 10px;
+      font: 700 clamp(.78rem, 1.2vw, 1rem)/1 var(--mono);
+    }
+
+    .resolution p {
+      max-width: 27ch;
+      margin: 0;
+      font-size: clamp(1.7rem, 4.2vw, 4.5rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.05em;
+      text-wrap: balance;
+    }
+
+    .resolution:nth-child(even) p { justify-self: end; max-width: 24ch; }
+
+    footer {
+      position: relative;
+      min-height: 78svh;
+      padding: 100px var(--pad) 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--ink);
+      color: var(--ground);
+    }
+
+    footer h2 {
+      max-width: 12ch;
+      margin: 0;
+      font-size: clamp(3.1rem, 8vw, 8.5rem);
+      font-weight: 500;
+      line-height: .86;
+      letter-spacing: -.07em;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      font: 600 clamp(.68rem, 1vw, .8rem)/1.45 var(--mono);
+    }
+
+    .footer-row p { margin: 0; }
+    .footer-row p:first-child { max-width: 48ch; }
+    .status { text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+
+    @media (max-width: 680px) {
+      .frame { border-width: 2px; }
+      .meta { top: 22px; }
+      .hero { min-height: 94svh; padding-top: 105px; }
+      h1 { max-width: 9.5ch; }
+      .subtitle { max-width: 29ch; }
+      .crack { right: -20px; width: 105px; opacity: .96; }
+      .visto { min-height: 62svh; grid-template-columns: 1fr; align-content: center; gap: 42px; }
+      .section-head { min-height: 38svh; }
+      .statement { min-height: 39svh; padding-block: 58px 42px; }
+      .statement p { max-width: 17ch; }
+      .resolution { min-height: 36svh; align-items: start; }
+      .resolution p { font-size: clamp(1.7rem, 8.1vw, 3rem); }
+      footer { min-height: 70svh; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media print {
+      .frame { width: 100%; margin: 0; border: 0; }
+      .hero,.visto,.section-head,.statement,.resolution,footer { min-height: auto; break-inside: avoid; }
+      .statement { padding-block: 2cm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <div class="meta"><span>Acta fundacional</span><span>Expediente abierto</span></div>
+
+    <section class="hero">
+      <h1>Comisión de Hendijas y Resquicios</h1>
+      <p class="subtitle">Relevamiento permanente de afectaciones producidas por la institución.</p>
+
+      <svg class="crack" viewBox="0 0 180 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M112 -10 96 72 119 139 76 216 101 283 63 358 87 434 51 510 72 580 42 652 67 720 35 798 54 864 29 930 38 1010" fill="none" stroke="#11110f" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
+        <path d="M105 10 91 74 113 139" fill="none" stroke="#52d6d0" stroke-width="12" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M109 145 72 216 96 283" fill="none" stroke="#ff6d9f" stroke-width="13" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M92 289 59 358 82 434" fill="none" stroke="#ffe04b" stroke-width="12" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M79 440 47 510 68 580" fill="none" stroke="#75cf72" stroke-width="13" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M63 586 38 652 63 720" fill="none" stroke="#ff7a3d" stroke-width="12" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M59 726 31 798 50 864" fill="none" stroke="#8c72d8" stroke-width="13" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+        <path d="M48 870 25 930 34 1010" fill="none" stroke="#52d6d0" stroke-width="12" stroke-linecap="butt" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </section>
+
+    <section class="visto">
+      <h2 class="section-title">Visto.</h2>
+      <p>Las hendijas que atraviesan paredes, pisos, cuerpos y vínculos.</p>
+    </section>
+
+    <section class="section-head considerando"><h2>Considerando que.</h2></section>
+
+    <div aria-label="Considerandos">
+      <article class="statement" data-number="01"><p>Algunas aparecieron hace tiempo.</p></article>
+      <article class="statement" data-number="02"><p>Otras fueron cubiertas con sucesivas manos de silencio.</p></article>
+      <article class="statement" data-number="03"><p>Lo tapado no está reparado.</p></article>
+      <article class="statement" data-number="04"><p>Una persona puede llorar en su casa y marcar en hora.</p></article>
+      <article class="statement" data-number="05"><p>Llamamos «asuntos personales» a lo que el trabajo hace con nosotras cuando salimos de trabajar.</p></article>
+      <article class="statement" data-number="06"><p>Cuando una habla y no es escuchada, muchas reciben el mensaje.</p></article>
+      <article class="statement" data-number="07"><p>Después se afirma que nadie dijo nada.</p></article>
+      <article class="statement" data-number="08"><p>Llamamos casos aislados a las fisuras de una misma estructura.</p></article>
+      <article class="statement" data-number="09"><p>La misma norma no llega a todas por igual.</p></article>
+      <article class="statement" data-number="10"><p>Debajo de «está todo bien» siguen pasando cosas.</p></article>
+    </div>
+
+    <section class="section-head"><h2>Se resuelve.</h2></section>
+
+    <div class="resolutions" aria-label="Resoluciones">
+      <article class="resolution"><p>Crear la Comisión de Hendijas y Resquicios.</p></article>
+      <article class="resolution"><p>Declarar de interés colectivo todo aquello que se pretendió reducir a un problema individual.</p></article>
+      <article class="resolution"><p>Dar carácter de antecedente a lo que se insiste en tratar como anécdota.</p></article>
+      <article class="resolution"><p>Escuchar las voces que quedan del otro lado de las puertas.</p></article>
+      <article class="resolution"><p>No confundir silencio con consentimiento ni cumplimiento con bienestar.</p></article>
+      <article class="resolution"><p>Aprovechar cada resquicio para que lo vivido no vuelva a quedar tapado.</p></article>
+      <article class="resolution"><p>Mantener abierto este relevamiento hasta que escuchar produzca consecuencias.</p></article>
+    </div>
+
+    <footer>
+      <h2>Comisión de Hendijas y Resquicios.</h2>
+      <div class="footer-row">
+        <p>Comisión de Hendijas y Resquicios<br>Relevamiento permanente de afectaciones producidas por la institución.</p>
+        <p class="status">Relevamiento en curso</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
